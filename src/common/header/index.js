@@ -145,5 +145,6 @@ const mapDispathToProps = (dispatch) => {
   }
 
 }
+// onFocus={ () => handleInputFocus(list)} 传值list的写法
 
 export default connect(mapStateToProps, mapDispathToProps)(Header)

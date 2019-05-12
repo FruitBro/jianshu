@@ -18,6 +18,7 @@ import {
   Button
 } from "./style";
 
+// ref可以获得元素的真实节点
 class Header extends Component {
   getListArea () {
     const { focused, list, page, mouseIn, totalPage, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props
@@ -40,7 +41,10 @@ class Header extends Component {
         >
           <SearchInfoTitle>
             热门搜索
-            <SearchInfoSwitch onClick={ () => handleChangePage(page, totalPage)}>换一批</SearchInfoSwitch>
+            
+            <SearchInfoSwitch onClick={ () => handleChangePage(page, totalPage, this.spinIcon)}>
+            <i ref={ (icon) => {this.spinIcon = icon}} className="iconfont spin">&#xe851;</i>
+            换一批</SearchInfoSwitch>
           </SearchInfoTitle>
           <SearchInfoList>
             {pageList}
@@ -75,7 +79,7 @@ class Header extends Component {
             onBlur={handleInputBlur}
           />
         </CSSTransition>
-          <i className={focused ? "focused iconfont" : "iconfont"}>
+          <i className={focused ? "focused iconfont zoom" : "iconfont zoom"}>
             &#xe614;
           </i>
           {this.getListArea()}
@@ -121,7 +125,16 @@ const mapDispathToProps = (dispatch) => {
     handleMouseLeave () {
       dispatch(actionCreators.mouseLeave())
     },
-    handleChangePage (page, totalPage) {
+    handleChangePage (page, totalPage, spin) {
+      // 使用动画，只能通过ref操作dom
+      let originAngle = spin.style.transform.replace(/[^0-9]/ig, '')
+      if (originAngle) {
+        originAngle = parseInt(originAngle, 10)
+      } else {
+        originAngle = 0
+      }
+      console.log(originAngle)
+      spin.style.transform = `rotate(${originAngle + 360}deg)`
       if (page < totalPage) {
         dispatch(actionCreators.changePage(page + 1))
       } else {

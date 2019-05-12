@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Provider } from 'react-redux'
 import Header from "./common/header"
-import { directive } from '@babel/types';
 import GlobalStyle from './style'
 import GlobalFont from './statics/iconfont/iconfont'
 import store from './store'

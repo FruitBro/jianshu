@@ -1,6 +1,5 @@
 import * as constants from './actionTypes'
 import { fromJS } from 'immutable' // 将js对象转化为immutable对象
-import { setAutoFreeze } from 'immer';
 // facebook开发 immutable.js immutable对象
 
 const defaultState = fromJS({

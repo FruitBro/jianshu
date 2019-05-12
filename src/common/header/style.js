@@ -103,7 +103,7 @@ export const Addition = styled.div`
 export const Button = styled.div`
   float: right;
   margin-top: 9px;
-  marign-right: 20px;
+  margin-right: 20px;
   padding: 0 20px;
   line-height: 38px;
   border-radius: 19px;

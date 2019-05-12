@@ -9,9 +9,38 @@ import {
   NavItem,
   SearchWrapper,
   NavSearch,
+  SearchInfo,
+  SearchInfoTitle,
+  SearchInfoSwitch,
+  SearchInfoList,
+  SeatchInfoItem,
   Addition,
   Button
 } from "./style";
+
+const getListArea = (show) => {
+  if (show) {
+    return (
+      <SearchInfo>
+        <SearchInfoTitle>
+          热门搜索
+          <SearchInfoSwitch>换一批</SearchInfoSwitch>
+        </SearchInfoTitle>
+        <SearchInfoList>
+          <SeatchInfoItem>教育</SeatchInfoItem>
+          <SeatchInfoItem>教育</SeatchInfoItem>
+          <SeatchInfoItem>教育</SeatchInfoItem>
+          <SeatchInfoItem>教育</SeatchInfoItem>
+          <SeatchInfoItem>教育</SeatchInfoItem>
+          <SeatchInfoItem>教育</SeatchInfoItem>
+        </SearchInfoList>
+      </SearchInfo>
+    )
+  } else {
+    return null
+  }
+}
+
 // 因为组件中只有render，所以可以改为无状态组件
 const Header = (props) => {
   return (
@@ -39,6 +68,7 @@ const Header = (props) => {
           <i className={props.focused ? "focused iconfont" : "iconfont"}>
             &#xe614;
           </i>
+          {getListArea(props.focused)}
       </SearchWrapper>
     </Nav>
     <Addition>
@@ -54,7 +84,8 @@ const Header = (props) => {
 // 通过此方法取props值
 const mapStateToProps = (state) => {
   return {
-    focused: state.header.get('focused')
+    focused: state.getIn(['header', 'focused'])
+    // focused: state.get('header').get('focused') // 和上面的写法等价
   }
 
 }

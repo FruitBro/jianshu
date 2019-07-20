@@ -32,3 +32,73 @@ export default (state = defaultState, action) => {
             return state
     }
 }
+
+// console.log(b)
+// var b = 1
+// function b () {
+
+// }
+// console.log(b)
+
+
+// /**
+//  * 算法基本思路
+//  * 边界值
+//  * 返回值
+//  * 
+//  */
+// // 查找一个字符串中的最大值
+// var str = 'sfeifsfevdewijiegdes'
+ 
+// function findMaxChar (str) {
+//   if (str.length === 1) {
+//     return str
+//   }
+//   var charObj = {}
+//   for (let i = 0; i < str.length; i++) {
+//     if (!charObj[str.charAt(i)]) {
+//       charObj[str.charAt(i)] = 1
+//     } else {
+//       charObj[str.charAt(i)] ++
+//     }
+//   }
+//   let maxChar = ''
+//   let maxValue = 1
+//   for (const k in charObj) {
+//     if (charObj[k] >= maxValue) {
+//       maxChar = k
+//       maxValue = charObj[k]
+//     }
+//   }
+//   return maxChar
+// }
+
+// // for in 与 for of 的区别
+
+// var obj = {
+//   a: 1,
+//   b: 2,
+//   c: 4,
+//   d: 2
+// }
+
+// for (const key in object) {
+//   if (object.hasOwnProperty(key)) {
+//     const element = object[key];
+    
+//   }
+// }
+
+// for (const iterator of object) {
+  
+// }
+
+// // 判断一个单词是否是回文
+
+// var paliStr = 'manam'
+
+// function checkPalindrom (str) {
+//   return str === str.split('').reverse().join('')
+// }
+
+
